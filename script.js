@@ -66,14 +66,29 @@ function gameOver() {
 }
 
 function mousePressed() {
-
   console.log("click!");
   if(gameState == "splash"){
     gameState = "play"; 
    } else if (gameState == "play"){
-    gameState = "gameOver";
+    //gameState = "gameOver";
    } else if (gameState == "gameOver"){
       gameState = "splash"; 
    }
-  
+
+function keyPressed() {
+    switch(keyCode) {
+      case UP_ARROW :
+        console.log("up");
+        player1.y -= 30 // move up 30px
+        player1.angle = 0; // no rtataion
+        break;
+      case DOWN_ARROW :
+        console.log ("down"); 
+        break;
+      default : // do this if the key doesn't match the list ...
+        console.log("press the arrow keys to move player1");
+    }
+  }
 }
+  
+
