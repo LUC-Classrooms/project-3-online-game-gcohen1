@@ -1,15 +1,16 @@
 /**
  * Project 3 versions 0-4 - 2D Web Game
- * Name:
+ * Name: Gracie Cohen
  * 
  * Use this template to get started creating a simple 2D game for the web using P5.js. 
  */
 var gameState = "splash"; 
-
+var player1;
 function setup() {
 
   createCanvas(600, 400);
-
+player1 = new Player(width/2, height * 4/5); 
+console.log(player1); 
 }
 
 function draw() {
@@ -49,7 +50,9 @@ function play() {
   fill(0, 0, 200)
   textAlign(CENTER);
   textSize(16);
-  text("This is where the Game happens", width / 2, height / 2);
+  // text("This is where the Game happens", width / 2, height / 2);
+  player1.x = mouseX; 
+  player1.display();
 
 }
 
