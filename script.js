@@ -80,6 +80,19 @@ function play() {
       presents[i].display(); 
       presents[i].move(); 
       presents[i].spin(); 
+
+      let d = dist(presents[i].x, presents[i].y, player1.x, player1.y);
+      if (d < 50) {
+        // if it's within 50 pixels, do something!
+      if (d < 50) {
+          presents.splice(i, 1); // remove 1 item at index 'i'
+        }
+      }
+      if(presents[i].y > height) {
+        // present went below the canvas
+        presents.splice(i, 1);
+        // remove 1 element from from "presents" at index 'i'
+      }
     }
 
   }
