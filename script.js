@@ -85,11 +85,12 @@ function play() {
       let d = dist(presents[i].x, presents[i].y, player1.x, player1.y);
       if (d < 50) {
         // if it's within 50 pixels, do something!
-      if (d < 50) {
+      if (d < 50)
+      score ++; // add 1 point }
           presents.splice(i, 1); // remove 1 item at index 'i'
           if (d < 50) {
             presents.splice(i, 1);
-            score ++; // add 1 point!
+            score--; // subtract 1 from 
           }
         }
       }
@@ -106,7 +107,7 @@ textAlign(LEFT);
 text("elapsed time:" + gameTimer.elapsedTime, 40, 100); 
 // show elapsed time in top left 
 text("Score: " + score, 20, 40);
-}
+
 
 function gameOver() {
   // this is what you see when the game ends
@@ -115,6 +116,7 @@ function gameOver() {
   textAlign(CENTER);
   textSize(16);
   text("Game Over!", width / 2, height / 2);
+  text("Your final score: " + score, width/2, height * 2/3);
 }
 
 function mousePressed() {
@@ -122,6 +124,8 @@ function mousePressed() {
   if(gameState == "splash"){
     gameState = "play"; 
     gameTimer.start(); // start timer 
+    dropTimer.start();
+    score = 0; // reset score to 0 at start of game
    } else if (gameState == "play"){
     //gameState = "gameOver";
    } else if (gameState == "gameOver"){
