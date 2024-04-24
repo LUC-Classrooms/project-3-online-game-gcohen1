@@ -10,6 +10,7 @@ var dropTimer;
 var gameTimer; // time game play
 var testBox; 
 var presents = new Array(0); 
+var score = 0; // keep track of points (starting at 0)
 
 
 function setup() {
@@ -86,12 +87,17 @@ function play() {
         // if it's within 50 pixels, do something!
       if (d < 50) {
           presents.splice(i, 1); // remove 1 item at index 'i'
+          if (d < 50) {
+            presents.splice(i, 1);
+            score ++; // add 1 point!
+          }
         }
       }
       if(presents[i].y > height) {
         // present went below the canvas
         presents.splice(i, 1);
         // remove 1 element from from "presents" at index 'i'
+
       }
     }
 
@@ -99,6 +105,7 @@ function play() {
 textAlign(LEFT); 
 text("elapsed time:" + gameTimer.elapsedTime, 40, 100); 
 // show elapsed time in top left 
+text("Score: " + score, 20, 40);
 }
 
 function gameOver() {
